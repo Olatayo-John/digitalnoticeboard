@@ -1,0 +1,6 @@
+.alert.alert-danger.alert-dismissible a{
+    float: right !important;
+}
+.alert.alert-danger.alert-dismissible{
+    padding-right: 1rem !important;
+}
