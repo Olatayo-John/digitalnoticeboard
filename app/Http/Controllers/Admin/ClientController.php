@@ -23,8 +23,6 @@ class ClientController extends Controller
      */
     public function index()
     {
-        // return Client::filter(request(['is_active', 'client_type_id']))->orderBy('name')->toSql();
-
         $data['title'] = 'Clients Management';
         $data['breadcrumbs'] = [
             [

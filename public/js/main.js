@@ -60,7 +60,7 @@ $(document).ready(function () {
 
     $(document).on('submit', 'form', function (e) {
         // e.preventDefault();
-        $('form button.InFormSubmitBtn').prop('disabled',true);
+        $('form button.InFormSubmitBtn').prop('disabled', true);
 
     });
 
@@ -89,3 +89,10 @@ ClassicEditor
         console.error(error);
     });
 
+
+Dropzone.options.fileDropzone = {
+    url: "admin/task/store", // Replace with your server's upload URL
+    maxFilesize: 5, // Maximum file size in MB
+    acceptedFiles: ".jpg, .png, .gif", // Allowed file types
+    addRemoveLinks: true, // Add remove links to uploaded files
+  };

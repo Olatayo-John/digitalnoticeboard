@@ -75,6 +75,7 @@ class TaskController extends Controller
     public function store(CreateTaskRequest $request)
     {
         $fields = $request->validated();
+        dd($fields);
 
         if ($request->hasFile('file')) {
             $allPath = "";
@@ -202,7 +203,6 @@ class TaskController extends Controller
 
     public function removeImage(RemoveTaskImageRequest $request)
     {
-        return true;
         $fields = $request->validated();
 
         $task = Task::find($fields['task_id']);

@@ -31,13 +31,6 @@ class ProfileController extends Controller
         return view('profile.index', $data);
     }
 
-    public function edit()
-    {
-        $data['user'] = User::find(auth()->user()->id);
-
-        return view('profile.edit', $data);
-    }
-
     public function update(UpdateProfileRequest $request)
     {
         $validated = $request->validated();
@@ -83,3 +76,7 @@ class ProfileController extends Controller
         return redirect()->back()->with('status', 'Password updated');
     }
 }
+
+
+// tests
+// try to find another server/3rd party to host uploaded files

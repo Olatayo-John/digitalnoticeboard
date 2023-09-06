@@ -32,11 +32,10 @@ class DesignationController extends Controller
             'designationId' => ['required', 'integer', 'exists:designations,id']
         ]);
 
-        // $res = Designation::where('id', $validated['designationId'])->get();
         $res = Designation::find($validated['designationId']);
 
         $data['status'] = true;
-        $data['designation'] = $res->load('reportingManager');
+        $data['designation'] = $res;
 
         return response()->json($data);
     }

@@ -21,9 +21,6 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        // $users = User::orderByRaw('CAST(id AS UNSIGNED)')->get();
-        // return $users = User::filter(request(['is_active','designation','reporting_manager']))->orderBy('id')->toSql();
-
         $users = User::filter(request(['reporting_manager', 'designation', 'is_active']))->orderBy('id')->get();
         $userList = User::orderBy('name')->get();
         $technologies = Technology::where('status', '1')->orderBy('name')->get();
@@ -73,7 +70,6 @@ class UserController extends Controller
     public function store(CreatUserRequest $request)
     {
         $fields = $request->validated();
-        // dd($fields);
 
         //profile
         if ($request->hasFile('profile_image')) {
@@ -199,10 +195,10 @@ class UserController extends Controller
             'userId' => ['required', 'string', 'exists:users,id']
         ]);
 
-        $user = User::find($validated['userId']);
+        $user = User::with('technologies')->find($validated['userId']);
 
         $data['status'] = true;
-        $data['user'] = $user->load('technologies');
+        $data['user'] = $user;
         $data['technologies'] = Technology::where('status', '1')->orderBy('name')->get();
 
         return response()->json($data);

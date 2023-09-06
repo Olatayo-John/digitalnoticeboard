@@ -43,7 +43,7 @@
                                                     </div>
                                                     <div>
                                                         <div>
-                                                            <a href="{{ route('client.show', $client->id) }}"
+                                                            <a href="{{ route('client.show', $client) }}"
                                                                 class="align-self-center mb-0 admin-name">
                                                                 <strong>{{ $client->name }}</strong>
                                                             </a>

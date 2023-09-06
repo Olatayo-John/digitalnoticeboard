@@ -155,7 +155,8 @@
                             aria-labelledby="animated-underline-profile-tab">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
-                                    <form method="post" action="{{ route('task.store') }}" enctype="multipart/form-data">
+                                    <form method="post" action="{{ route('task.store') }}" enctype="multipart/form-data"
+                                        class="addTaskForm dropzone_">
                                         @csrf
                                         @method('post')
 
@@ -318,6 +319,22 @@
                                                                 @endforeach
                                                             </div>
                                                         </div>
+
+                                                        {{-- <div class="form-group">
+                                                            <label for="">File</label>
+
+                                                            <div id="fileDropzone" class="dropzone">
+                                                                @foreach (config('site.project_instructions') as $key => $value)
+                                                                    <strong class="text-danger">
+                                                                        {{ $value }}
+                                                                    </strong><br>
+                                                                @endforeach
+                                                            </div>
+
+                                                            @error('file')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div> --}}
                                                     </div>
 
                                                 </div>
